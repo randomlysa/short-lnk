@@ -1,18 +1,16 @@
 import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
-import { Tracker } from 'meteor/tracker'
 import history from '../utils/history'
 
-import Home from './Home';
-import Signup from './Signup';
-import Links from './Links';
-import NotFound from './NotFound';
+import Home from '../ui/Home';
+import Signup from '../ui/Signup';
+import Links from '../ui/Links';
+import NotFound from '../ui/NotFound';
 
 const pagesForUnauthUsers = ['/', '/signup']
 const pagesForAuthUsers = ['/links']
 
-Tracker.autorun(() => {
-  let isAuthenticated = !!Meteor.userId()
+export const onAuthChange = (isAuthenticated) => {
   let pathname = this.location.pathname;
   const isUnauthPage = pagesForUnauthUsers.includes(pathname)
   const isAuthPage = pagesForAuthUsers.includes(pathname)
@@ -22,9 +20,9 @@ Tracker.autorun(() => {
   } else if(!isAuthenticated && isAuthPage) {
     history.replace('/');
   }
-})
+}
 
-const AppRouter = () => (
+export const routes = (
   <Router history={history}>
     <div>
       <Switch>
@@ -36,5 +34,3 @@ const AppRouter = () => (
     </div>
   </Router>
 )
-
-export default AppRouter;

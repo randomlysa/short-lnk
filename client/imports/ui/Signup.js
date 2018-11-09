@@ -40,8 +40,7 @@ export default class Signup extends React.Component {
           <button>Create Account</button>
         </form>
 
-        <em>Have an account? </em>
-        <Link to="/">Login</Link>
+        Have an account? <Link to="/">Login</Link>
 
       </div>
     )

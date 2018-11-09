@@ -3,6 +3,7 @@ import { Accounts } from 'meteor/accounts-base'
 import onEnterPrivatePage from '../utils/onEnterPrivatePage';
 
 import { Links } from '../api/links'
+import LinksList from '../ui/LinksList'
 
 export default class Link extends React.Component {
   doLogout() {
@@ -37,6 +38,7 @@ export default class Link extends React.Component {
           <button>Add Link</button>
         </form>
 
+        <LinksList />
       </div>
     )
   }

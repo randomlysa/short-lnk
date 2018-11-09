@@ -18,9 +18,9 @@ Tracker.autorun(() => {
   const isAuthPage = pagesForAuthUsers.includes(pathname)
 
   if(isAuthenticated && isUnauthPage) {
-    history.push('/links');
+    history.replace('/links');
   } else if(!isAuthenticated && isAuthPage) {
-    history.push('/');
+    history.replace('/');
   }
 })
 

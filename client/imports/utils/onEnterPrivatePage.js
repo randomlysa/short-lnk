@@ -6,6 +6,6 @@ export default onEnterPrivatePage = () => {
   // Add this to ComponentWillMount on pages that need it.
   // Private page: /links
   if (!Meteor.userId()) {
-    history.push('/');
+    history.replace('/');
   }
 }

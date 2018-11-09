@@ -6,6 +6,6 @@ export default onEnterPublicPage = () => {
   // Add this to ComponentWillMount on pages that need it.
   // Public pages: /, /signup
   if (Meteor.userId()) {
-    history.push('/links');
+    history.replace('/links');
   }
 }

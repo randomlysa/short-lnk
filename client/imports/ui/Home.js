@@ -18,7 +18,8 @@ export default class Home extends React.Component {
     let password = this.refs.password.value.trim();
 
     Meteor.loginWithPassword({email}, password, (e) => {
-      console.log('login callback', e)
+      if (e) this.setState({error: 'Unable to login. Check email and password'});
+      else this.setState({error: ''});
     })
   } // onSubmit
 

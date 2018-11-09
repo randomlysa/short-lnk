@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base'
+import onEnterPublicPage from '../utils/onEnterPublicPage';
 
 export default class Signup extends React.Component {
   constructor(props) {
@@ -23,6 +24,10 @@ export default class Signup extends React.Component {
     // this.setState({
     //   error: 'Something went wrong'
     // });
+  }
+
+  componentWillMount() {
+    onEnterPublicPage();
   }
 
   render() {

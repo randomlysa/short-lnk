@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor'
+import onEnterPublicPage from '../utils/onEnterPublicPage';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -20,6 +21,10 @@ export default class Home extends React.Component {
       console.log('login callback', e)
     })
   } // onSubmit
+
+  componentWillMount() {
+    onEnterPublicPage();
+  }
 
   render() {
     return (

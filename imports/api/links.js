@@ -23,13 +23,40 @@ Meteor.methods({
         label: 'Your link',
         regEx: SimpleSchema.RegEx.Url,
       }
-    }).validate({ url })
+    }).validate({ url });
 
     Links.insert({
       _id: shortid.generate(),
       url,
       userId: this.userId,
       visible: true
+    });
+  },
+  'links.setVisibility'(_id, setTo) {
+    // Validate user is logged in
+    if (!this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+
+    // Validate _id
+    new SimpleSchema({
+      _id: {
+        type: String,
+        min: 1
+      },
+      setTo: {
+        type: Boolean
+      }
+    }).validate({ _id, setTo });
+
+    // Run update
+    Links.update({
+      _id,
+      userId: this.userId
+    }, {
+      $set: {
+        visible: setTo
+      }
     });
   }
 });

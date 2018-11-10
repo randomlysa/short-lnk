@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import { Meteor } from 'meteor/meteor';
 import Clipboard from 'clipboard'
+import { Links } from '../api/links';
 
 export default class LinksListItem extends React.Component {
   constructor(props) {
@@ -33,6 +35,11 @@ export default class LinksListItem extends React.Component {
         <a href={this.props.shortUrl}>{this.props.shortUrl}</a>
         <button ref="copy" data-clipboard-text={this.props.shortUrl}>
           {this.state.copyText}
+        </button>
+        <button onClick={() => {
+          Meteor.call('links.setVisibility', this.props._id, !this.props.visible)
+        }}>
+          {this.props.visible ? 'Hide' : 'Show'}
         </button>
       </div>
     )

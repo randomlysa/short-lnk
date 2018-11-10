@@ -17,3 +17,10 @@ input, select, button {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
+
+.shortUrl {
+  border: solid 2px #000;
+  margin-bottom: 1rem;
+  padding: 3rem;
+  width: 40rem;
+}

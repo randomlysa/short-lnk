@@ -38,7 +38,7 @@ Meteor.methods({
       throw new Meteor.Error('not-authorized');
     }
 
-    // Validate _id
+    // Validate _id and setTo
     new SimpleSchema({
       _id: {
         type: String,

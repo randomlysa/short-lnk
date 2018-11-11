@@ -1,9 +1,13 @@
 import React from 'react';
+import Modal from 'react-modal';
 
 export default class AddLink extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { url: '' }
+    this.state = {
+      url: '',
+      modalIsOpen: false
+     }
   }
   onChange(e) {
     this.setState({ url: e.target.value })
@@ -15,8 +19,8 @@ export default class AddLink extends React.Component {
 
     if(url) {
       Meteor.call('links.insert', url, (err, res) => {
-        // If there's no error, remove the url.
-        if(!err) this.setState({ url: '' })
+        // If there's no error, remove the url and hide the modal.
+        if(!err) this.setState({ modalIsOpen: false, url: '' })
       }) // Meteor.call
     } // if(url)
   } // onSubmit
@@ -24,16 +28,29 @@ export default class AddLink extends React.Component {
   render() {
     return (
       <div>
-        <h3>Add Link</h3>
-        <form onSubmit={this.onSubmit.bind(this)}>
-          <input
-            type="text"
-            placeholder="Your URL"
-            value={this.state.url}
-            onChange={this.onChange.bind(this)}
-          />
-          <button>Add Link</button>
-        </form>
+        <button onClick={ () => this.setState({modalIsOpen: true}) }>
+          + Add Link
+        </button>
+
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          contentLabel="Add link"
+          appElement={document.getElementById('app')}
+        >
+          <h3>Add Link</h3>
+          <form onSubmit={this.onSubmit.bind(this)}>
+            <input
+              type="text"
+              placeholder="Your URL"
+              value={this.state.url}
+              onChange={this.onChange.bind(this)}
+            />
+            <button>Add Link</button>
+          </form>
+          <button onClick={ () => this.setState({modalIsOpen: false, url: ''}) }>
+            Cancel
+          </button>
+        </Modal>
       </div>
     ) // return
   } // render

@@ -20,14 +20,16 @@ export default class AddLink extends React.Component {
 
     Meteor.call('links.insert', url, (e, res) => {
       // If there's no error, remove the url and hide the modal.
-      if(!e) this.setState({ modalIsOpen: false, url: '', error: '' });
+      if(!e) this.handleModalClose();
       // Error
-      else {
-        this.setState({ error: e.reason });
-      }
+      else this.setState({ error: e.reason });
     }) // Meteor.call
-
   } // onSubmit
+
+  handleModalClose() {
+    // Close the modal and remove the url and error text.
+    this.setState({ modalIsOpen: false, url: '', error: '' })
+  }
 
   render() {
     return (
@@ -41,6 +43,7 @@ export default class AddLink extends React.Component {
           contentLabel="Add link"
           appElement={document.getElementById('app')}
           onAfterOpen={ () => this.refs.url.focus() }
+          onRequestClose={ this.handleModalClose.bind(this) }
         >
           <h3>Add Link</h3>
           {this.state.error ? <p>{this.state.error}</p> : ''}
@@ -50,15 +53,11 @@ export default class AddLink extends React.Component {
               placeholder="Your URL"
               ref="url"
               value={this.state.url}
-              onChange={this.onChange.bind(this)}
+              onChange={ this.onChange.bind(this) }
             />
             <button>Add Link</button>
           </form>
-          <button onClick={ () => { this.setState({
-              modalIsOpen: false,
-              url: '',
-              error: ''
-          }) }}>
+          <button onClick={ this.handleModalClose.bind(this) }>
             Cancel
           </button>
         </Modal>

@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 
 export default () => {
   return (
-    <div>
-      <h1>Not Found</h1>
-      <Link to="/">Go Home</Link>
+    <div className="boxed-view">
+      <div className="boxed-view__box">
+        <h1>Not Found</h1>
+        <p>Sorry, that link or page doesn't exist</p>
+        <Link to="/">Go Home</Link>
+      </div>
     </div>
   )
 }

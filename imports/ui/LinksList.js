@@ -41,8 +41,7 @@ export default class LinksList extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3>Links List</h3>
+      <div className="links-list">
         <div>
           {this.renderLinksListItems()}
         </div>

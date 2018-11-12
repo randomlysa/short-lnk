@@ -29,18 +29,20 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Login to Short Lnk</h1>
+      <div className="boxed-view">
+        <div className="boxed-view__box">
+          <h1>Login to Short Lnk</h1>
 
-        {this.state.error ? <p>{this.state.error}</p> : ''}
+          {this.state.error ? <p>{this.state.error}</p> : ''}
 
-        <form onSubmit={this.onSubmit.bind(this)} noValidate>
-          <input type="email" ref="email" name="email" placeholder="Email" />
-          <input type="password" ref="password" name="password" placeholder="Password" />
-          <button>Login</button>
-        </form>
+          <form onSubmit={this.onSubmit.bind(this)} noValidate>
+            <input type="email" ref="email" name="email" placeholder="Email" />
+            <input type="password" ref="password" name="password" placeholder="Password" />
+            <button>Login</button>
+          </form>
 
-        Don't have an account? <Link to="/signup">Sign up</Link>
+          Don't have an account? <Link to="/signup">Sign up</Link>
+        </div>
       </div>
     )
   }

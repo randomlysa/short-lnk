@@ -35,7 +35,7 @@ export default class Home extends React.Component {
 
           {this.state.error ? <p>{this.state.error}</p> : ''}
 
-          <form onSubmit={this.onSubmit.bind(this)} noValidate>
+          <form onSubmit={this.onSubmit.bind(this)} className="boxed-view-form" noValidate>
             <input type="email" ref="email" name="email" placeholder="Email" />
             <input type="password" ref="password" name="password" placeholder="Password" />
             <button>Login</button>

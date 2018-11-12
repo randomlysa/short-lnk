@@ -40,6 +40,7 @@ export default class AddLink extends React.Component {
           isOpen={this.state.modalIsOpen}
           contentLabel="Add link"
           appElement={document.getElementById('app')}
+          onAfterOpen={ () => this.refs.url.focus() }
         >
           <h3>Add Link</h3>
           {this.state.error ? <p>{this.state.error}</p> : ''}
@@ -47,6 +48,7 @@ export default class AddLink extends React.Component {
             <input
               type="text"
               placeholder="Your URL"
+              ref="url"
               value={this.state.url}
               onChange={this.onChange.bind(this)}
             />

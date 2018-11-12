@@ -25,9 +25,10 @@ export default class ListLinksFilter extends React.Component {
   render() {
     return (
       <div>
-        <label>
+        <label className="checkbox">
           Show hidden links &nbsp;
           <input
+            className="checkbox"
             type="checkbox"
             checked={!this.state.showVisible}
             onChange={(e) =>{

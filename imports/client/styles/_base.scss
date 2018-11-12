@@ -16,7 +16,7 @@ input[type=text], input[type=email], input[type=password] {
   border: 1px solid $input-border;
   font-size: $base-font-size;
   margin-bottom: $spacing-bottom;
-  padding: .8rem;
+  padding: $input-spacing;;
 }
 
 h1 {

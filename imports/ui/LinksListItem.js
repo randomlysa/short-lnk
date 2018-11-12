@@ -54,7 +54,7 @@ export default class LinksListItem extends React.Component {
           href={this.props.shortUrl}
           target="_blank"
         >
-          {this.props.shortUrl}
+          Visit
         </a>
         <button
           className="button button--pill"

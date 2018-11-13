@@ -20,7 +20,7 @@ Requirements
 
 **Instructions**
 - Clone or download and unzip the project and cd into the dir.
-- Run `npm install`
+- Run `meteor npm install`
 - Run `meteor`
 	- By default, the project runs on port 3000. Use `meteor --port #` to specify a different port.
 - Open http://localhost:3000 in your browser. 

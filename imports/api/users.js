@@ -12,8 +12,7 @@ Accounts.validateNewUser((user) => {
     }
   }).validate({ email })
 
-
-  return true
+  return true;
 });
 
 // Configure the email body to not use a hash URL.
@@ -30,11 +29,5 @@ Accounts.emailTemplates.resetPassword.text = (user, url) => {
 
   Thank you
   `;
-}
+};
 
-Meteor.methods({
-  'user.sendPasswordReset'(userId) {
-    console.log('user.sendPWR')
-    Accounts.sendResetPasswordEmail(userId)
-  }
-})

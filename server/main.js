@@ -5,6 +5,8 @@ import '../imports/api/users'
 import { Links } from '../imports/api/links'
 import '../imports/startup/simpleSchemaConf';
 
+import { MAIL_URL } from './config.js';
+
 Meteor.startup(() => {
   WebApp.connectHandlers.use((req, res, next) => {
     const _id = req.url.slice(1);
@@ -21,5 +23,8 @@ Meteor.startup(() => {
     } else {
       next();
     }
-  })
+  });
+
+  process.env.MAIL_URL=MAIL_URL;
+
 });

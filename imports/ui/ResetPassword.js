@@ -19,7 +19,14 @@ export default class PasswordReset extends React.Component {
       this.refs.newPwd.value.length > 7)
     {
       // Valid
-      this.setState({ 'error': ''})
+      this.setState({ 'error': ''});
+      Accounts.resetPassword(this.token, this.refs.newPwd.value, function(err) {
+        if (err) {
+          console.log('We are sorry but something went wrong.');
+        } else {
+          console.log('Your password has been changed. Welcome back!');
+        }
+      });
     } else {
       // Invalid
       this.setState({ 'error': 'Please enter matching passwords of 8 or more characters'})

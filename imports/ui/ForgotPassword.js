@@ -1,6 +1,6 @@
 import React from 'react';
-import PrivateHeader from './PrivateHeader'
 import { Accounts } from 'meteor/accounts-base';
+import { Link } from 'react-router-dom';
 
 export default class ForgotPassword extends React.Component {
   constructor(props) {
@@ -29,27 +29,29 @@ export default class ForgotPassword extends React.Component {
     // On success, show message and hide form.
     if (this.state.success) {
       return (
-        <div>
-          <PrivateHeader title="Reset Password" />
-            <div className="page-content">
-              Your password reset link was emailed to you.
-            </div>
+        <div className="boxed-view">
+          <div className="boxed-view__box">
+            <h2>Success</h2>
+            Your password reset link was emailed to you.
+          </div>
         </div>
       )
-    }
+    } // this.state.success
 
     // Render form with email input.
     return (
-      <div>
-        <PrivateHeader title="Reset Password" />
-          <div className="page-content">
+      <div className="boxed-view">
+        <div className="boxed-view__box">
+          <h2>Forgot Password</h2>
+          <p>Request an email<br />to reset your password.</p>
           {this.state.error ? <p>{this.state.error}</p> : undefined}
-            <form onSubmit={this.onSubmit.bind(this)} noValidate>
-              <input ref="email" name="email" placeholder="Your email" type="email" />
-              <br />
-              <button className="button">Request password reset email</button>
-            </form>
-          </div>
+          <form className="boxed-view-form" onSubmit={this.onSubmit.bind(this)} noValidate>
+            <input ref="email" name="email" placeholder="Your email" type="email" />
+            <br />
+            <button className="button">Request Email</button>
+          </form>
+          <Link to="/">Return to sign in</Link>
+        </div>
       </div>
     ) // return
   } // render

@@ -5,6 +5,7 @@ import history from '../utils/history'
 import Home from '../ui/Home';
 import Signup from '../ui/Signup';
 import Links from '../ui/Links';
+import ResetPassword from '../ui/ResetPassword'
 import NotFound from '../ui/NotFound';
 
 const pagesForUnauthUsers = ['/', '/signup']
@@ -29,6 +30,7 @@ export const routes = (
         <Route path="/" exact component={Home} />
         <Route path="/signup/" component={Signup} />
         <Route path="/links/" component={Links} />
+        <Route path="/reset-password/" component={ResetPassword} />
         <Route component={NotFound} />
       </Switch>
     </div>

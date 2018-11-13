@@ -17,6 +17,7 @@ Accounts.validateNewUser((user) => {
 });
 
 // Configure the email body to not use a hash URL.
+// Alternative option? https://stackoverflow.com/a/28622020
 Accounts.emailTemplates.resetPassword.text = (user, url) => {
   const newUrl = url.replace('/#/', '/');
   return `

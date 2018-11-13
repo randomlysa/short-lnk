@@ -31,3 +31,8 @@ Accounts.emailTemplates.resetPassword.text = (user, url) => {
   `;
 };
 
+// Set email 'from' and 'subject.'
+Accounts.emailTemplates.from =  "Short Lnk App <su@randomlysa.com>";
+Accounts.emailTemplates.resetPassword.subject = () => {
+  return  "Reset your Short Lnk Password";
+}

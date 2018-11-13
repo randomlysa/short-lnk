@@ -23,6 +23,7 @@ Meteor.startup(() => {
     }
   });
 
+  // http://joshowens.me/environment-settings-and-security-with-meteor-js/
   if (Meteor.isDevelopment) process.env.MAIL_URL=Meteor.settings.MAIL_URL;
   else process.env.MAIL_URL=process.env.MAIL_URL
 

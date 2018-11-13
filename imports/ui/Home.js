@@ -41,11 +41,8 @@ export default class Home extends React.Component {
             <button className="button">Login</button>
           </form>
 
-          <button onClick={ () => {
-            Meteor.call('user.sendPasswordReset', '3oxB2uBkCfor5dp2L')
-          }}>Forgot Password?</button><br />
-
-          Need an account? <Link to="/signup">Sign up</Link>
+          <Link to="/forgot-password">Forgot Password</Link><br /><br />
+          <Link to="/signup">Create Account</Link>
         </div>
       </div>
     )

@@ -61,4 +61,4 @@ typings/
 .next
 
 # has mail_url and other sensitive info
-config.js
+settings.json

@@ -1,6 +1,0 @@
-// The MAIL_URL should reference an SMTP server and use the form
-// smtp://USERNAME:PASSWORD@HOST:PORT or smtps://USERNAME:PASSWORD@HOST:PORT.
-
-const MAIL_URL="smtps://USER:PASSWORD@HOST:PORT"
-
-export { MAIL_URL }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Accounts } from 'meteor/accounts-base';
-import { createContainer } from 'meteor/react-meteor-data';
+import { withTracker } from 'meteor/react-meteor-data';
 
 import PropTypes from 'prop-types';
 
@@ -26,8 +26,8 @@ PrivateHeader.propTypes = {
 
   { Named } export will accept a prop for handleLogout for testing.
 */
-export default createContainer(() => {
+export default withTracker(() => {
   return {
     handleLogout: () => Accounts.logout()
   }
-}, PrivateHeader)
+})(PrivateHeader);

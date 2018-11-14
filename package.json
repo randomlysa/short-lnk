@@ -25,6 +25,7 @@
     "chai": "^4.2.0",
     "chai-spies": "^1.0.0",
     "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
     "react-addons-test-utils": "^15.6.2"
   },
   "engines": {

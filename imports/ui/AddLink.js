@@ -16,7 +16,12 @@ export default class AddLink extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const { url } = this.state;
+    let { url } = this.state;
+
+    // Before submitting, add http:// to the url if it's not already included.
+    // The url verifier requires http:// and otherwise 'valid' urls fail without
+    // it.
+    if (!url.includes('http://')) url = `http://${url}`;
 
     Meteor.call('links.insert', url, (e, res) => {
       // If there's no error, remove the url and hide the modal.

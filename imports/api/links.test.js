@@ -1,8 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { expect } from 'chai';
 
-console.log(expect)
-
 import { Links } from './links';
 
 if (Meteor.isServer) {

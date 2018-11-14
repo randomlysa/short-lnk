@@ -3,7 +3,7 @@ import { Session } from 'meteor/session';
 
 export default class ListLinksFilter extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       showVisible: true
     };

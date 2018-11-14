@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base'
+import { withTracker } from 'meteor/react-meteor-data';
+import PropTypes from 'prop-types';
+
 import onEnterPublicPage from '../utils/onEnterPublicPage';
 
-export default class Signup extends React.Component {
+
+export class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +25,7 @@ export default class Signup extends React.Component {
       return this.setState({error: 'Password must be at least 8 characters long'})
     }
 
-    Accounts.createUser({email, password}, (e) => {
+    this.props.createUser({email, password}, (e) => {
       if (e) this.setState({error: e.reason});
       else this.setState({error: ''});
     });
@@ -52,3 +56,9 @@ export default class Signup extends React.Component {
     )
   }
 }
+
+export default withTracker(() => {
+  return {
+    createUser: Accounts.createUser
+  }
+})(Signup);

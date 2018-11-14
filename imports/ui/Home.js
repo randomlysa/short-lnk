@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor'
+import { withTracker } from 'meteor/react-meteor-data';
+import PropTypes from 'prop-types';
+
 import onEnterPublicPage from '../utils/onEnterPublicPage';
 
-export default class Home extends React.Component {
+export class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +20,7 @@ export default class Home extends React.Component {
     let email = this.refs.email.value.trim();
     let password = this.refs.password.value.trim();
 
-    Meteor.loginWithPassword({email}, password, (e) => {
+    this.props.loginWithPassword({email}, password, (e) => {
       if (e) this.setState({error: 'Unable to login. Check email and password'});
       else this.setState({error: ''});
     })
@@ -48,3 +51,13 @@ export default class Home extends React.Component {
     )
   }
 }
+
+Home.propTypes = {
+  loginWithPassword: PropTypes.func.isRequired
+}
+
+export default withTracker(() => {
+  return {
+    loginWithPassword: Meteor.loginWithPassword
+  }
+})(Home);

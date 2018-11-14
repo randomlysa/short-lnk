@@ -1,18 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
-import Clipboard from 'clipboard'
-import { Links } from '../api/links';
+import Clipboard from 'clipboard';
 import moment from 'moment';
 
 export default class LinksListItem extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       copyText: 'Copy'
-    }
+    };
   }
+
   componentDidMount() {
     this.clipboard = new Clipboard(this.refs.copy);
     this.clipboard.on('success', () => {
@@ -28,6 +28,7 @@ export default class LinksListItem extends React.Component {
   componentWillUnmount() {
     this.clipboard.destroy();
   }
+
   renderStats() {
     // Show something like:
     // 0 visits
@@ -45,8 +46,9 @@ export default class LinksListItem extends React.Component {
       <p className="item__message">
         {this.props.visitedCount} {visitText} {visitedMessage}
       </p>
-    )
-  }
+    ) // return
+  } // renderStats
+
   render() {
     return (
       <div className="item">
@@ -77,8 +79,8 @@ export default class LinksListItem extends React.Component {
         </button>
       </div>
     )
-  }
-}
+  } // render
+} // export default class LinksListItem
 
 LinksListItem.propTypes = {
   shortUrl: PropTypes.string.isRequired,

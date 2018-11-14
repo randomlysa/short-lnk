@@ -16,6 +16,14 @@ export default class LinksList extends React.Component {
   } // constructor
 
   componentDidMount() {
+    // Tracker for showShortURL
+    this.showShortURLTracker = Tracker.autorun(() => {
+      // Update state with Meteor Session info
+      this.setState({
+        showShortURL: Session.get('showShortURL')
+      });
+    }); // Tracker.autorun
+
     this.linksTracker = Tracker.autorun(() => {
       Meteor.subscribe('links');
       const links = Links.find({
@@ -26,7 +34,8 @@ export default class LinksList extends React.Component {
   } // componentDidMount
 
   componentWillUnmount() {
-    this.linksTracker.stop()
+    this.linksTracker.stop();
+    this.showShortURLTracker.stop();
   } // componentWillUnmount
 
   renderLinksListItems() {
@@ -42,7 +51,14 @@ export default class LinksList extends React.Component {
 
     return this.state.links.map((link) => {
       const shortUrl = Meteor.absoluteUrl(link._id);
-      return <LinksListItem key={link._id} shortUrl={shortUrl} {...link} />
+      return (
+        <LinksListItem
+          key={link._id}
+          shortUrl={shortUrl}
+          showShortURL={this.state.showShortURL}
+          {...link}
+        />
+      )
     })
   } // renderLinksListItems
 

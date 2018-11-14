@@ -11,9 +11,10 @@ export default class ListLinksFilter extends React.Component {
 
   componentDidMount() {
     this.checkboxTracker = Tracker.autorun(() => {
-      // Sync checkbox with Session 'showVisible'
+      // Sync checkboxs with Session
       this.setState({
-        showVisible: Session.get('showVisible')
+        showVisible: Session.get('showVisible'),
+        showShortURL: Session.get('showShortURL')
       });
     }); // Tracker.autorun
   } // componentDidMount
@@ -33,6 +34,17 @@ export default class ListLinksFilter extends React.Component {
             checked={!this.state.showVisible}
             onChange={(e) =>{
               visible: Session.set('showVisible', !e.target.checked)
+            }}
+          />
+        </label>
+        <label className="checkbox">
+          Hide short url &nbsp;
+          <input
+            className="checkbox"
+            type="checkbox"
+            checked={!this.state.showShortURL}
+            onChange={(e) =>{
+              visible: Session.set('showShortURL', !e.target.checked)
             }}
           />
         </label>

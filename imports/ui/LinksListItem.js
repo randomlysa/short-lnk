@@ -53,7 +53,9 @@ export default class LinksListItem extends React.Component {
     return (
       <div className="item">
         <h3>{this.props.url}</h3>
-        <p className="item__message">{this.props.shortUrl}</p>
+        {this.props.showShortURL ?
+          <p className="item__message">{this.props.shortUrl}</p> : undefined
+        }
         {this.renderStats()}
         <a
           className="button button--pill button--link"

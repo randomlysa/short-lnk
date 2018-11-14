@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
-import expect from 'expect';
+import { expect } from 'chai';
 
-import { validateNewUser } from './users'
+import { validateNewUser } from './users';
 
 
 if (Meteor.isServer) {
@@ -12,7 +12,7 @@ if (Meteor.isServer) {
         emails: [{ address: 'test@example.com' }]
       };
       const result = validateNewUser(testUser);
-      expect(result).toBe(true);
+      expect(result).to.equal(true);
     }); // allow valid email
 
     it('should reject invalid email address', function () {
@@ -21,8 +21,9 @@ if (Meteor.isServer) {
       };
 
       expect(() => {
-        validateNewUser(testUser);
-      }).toThrow();
+        validateNewUser(testUser)
+      }).to.throw()
+
     }); // reject invalid email
 
   }); // describe users

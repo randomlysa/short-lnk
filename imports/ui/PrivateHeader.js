@@ -1,8 +1,10 @@
 import React from 'react';
-import { Accounts } from 'meteor/accounts-base'
-import PropTypes from 'prop-types'
+import { Accounts } from 'meteor/accounts-base';
+import { createContainer } from 'meteor/react-meteor-data';
 
-export default PrivateHeader = (props) => {
+import PropTypes from 'prop-types';
+
+export const PrivateHeader = (props) => {
   return (
     <div className="header">
       <div className="header__content">
@@ -17,3 +19,15 @@ PrivateHeader.propTypes = {
   title: PropTypes.string.isRequired,
   handleLogout: PropTypes.func.isRequired
 }
+
+/*
+  Assign a function to handleLogout for default export so existing
+  <PrivateHeader /> with only a title prop still work. (See Links.js)
+
+  { Named } export will accept a prop for handleLogout for testing.
+*/
+export default createContainer(() => {
+  return {
+    handleLogout: () => Accounts.logout()
+  }
+}, PrivateHeader)

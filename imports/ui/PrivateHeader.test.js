@@ -5,7 +5,7 @@ import spies from 'chai-spies';
 import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import PrivateHeader from './PrivateHeader';
+import { PrivateHeader } from './PrivateHeader';
 
 // Setup
 configure({ adapter: new Adapter() });

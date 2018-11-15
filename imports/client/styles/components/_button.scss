@@ -10,11 +10,13 @@
   text-transform: uppercase;
 }
 
+// Make a button look like a text link.
 .button--link {
   display: inline-block;
   text-decoration: none;
 }
 
+// Used on links for visit, copy, and hide.
 .button--pill {
   background-color: transparent;
   border: solid 1px $button-pill-color;
@@ -23,6 +25,7 @@
   padding: .6rem .8rem;
 }
 
+// Modal for Add link - cancel button.
 .button--secondary {
   background-color: $button-secondary-bg;
   border: solid 1px $button-secondary-border-color;

@@ -48,7 +48,7 @@ export default class ForgotPassword extends React.Component {
           <form className="boxed-view-form" onSubmit={this.onSubmit.bind(this)} noValidate>
             <input ref="email" name="email" placeholder="Your email" type="email" />
             <br />
-            <button className="button">Request Email</button>
+            <button className="button button--account">Request Email</button>
           </form>
           <Link to="/">Return to sign in</Link>
         </div>

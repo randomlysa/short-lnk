@@ -75,7 +75,7 @@ export default class ChangePassword extends React.Component {
               placeholder="Confirm"
               type="password"
             />
-            <button className="button">Change Password</button>
+            <button className="button button--account">Change Password</button>
             <br />
             <Link to="/links">Cancel</Link>
           </form>

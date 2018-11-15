@@ -39,3 +39,21 @@
   text-decoration: underline;
   text-transform: capitalize;
 }
+
+// Buttons that deal with accounts.
+.button--account {
+  background: $brand-primary-light;
+  color: $light-grey;
+  padding: 2rem;
+  transition: all, .2s;
+
+  &:hover {
+    background: $brand-primary;
+    color: #fff;
+  }
+
+  &:active {
+    background: $brand-primary;
+    color: #fff;
+  }
+}

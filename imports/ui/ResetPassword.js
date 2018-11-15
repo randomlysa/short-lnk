@@ -66,7 +66,7 @@ export default class PasswordReset extends React.Component {
               placeholder="Confirm"
               type="password"
             />
-            <button className="button">Reset Password</button>
+            <button className="button button--account">Reset Password</button>
           </form>
         </div>
       </div>

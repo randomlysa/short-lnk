@@ -35,6 +35,14 @@ export class Home extends React.Component {
     onEnterPublicPage();
   }
 
+  // https://medium.com/@jaaaco/add-facebook-login-to-meteor-app-in-2-minutes-3c744b46009e
+  loginFB() {
+    Meteor.loginWithFacebook({}, (e) => {
+      if(e) this.setState(e.message);
+      else history.push('/links');
+    });
+  } // loginFB
+
   togglePasswordVisible() {
     const password = this.refs.password;
     if (password.type === "password") password.type = "text";
@@ -64,8 +72,17 @@ export class Home extends React.Component {
             <button className="button button--account">Login</button>
           </form>
 
-          <Link to="/forgot-password">Forgot Password</Link><br /><br />
-          <Link to="/signup">Create Account</Link>
+          <div className="boxed-view__form">
+            <button
+              className="button button--facebook"
+              onClick={this.loginFB.bind(this)}
+            >
+              Login with Facebook
+            </button>
+          </div>
+
+            <Link to="/forgot-password">Forgot Password</Link><br /><br />
+            <Link to="/signup">Create Account</Link>
         </div>
       </div>
     )

@@ -10,7 +10,6 @@ import ChangePassword from '../ui/ChangePassword';
 import ForgotPassword from '../ui/ForgotPassword';
 import ResetPassword from '../ui/ResetPassword';
 import NotFound from '../ui/NotFound';
-import LoginWithFacebook from '../ui/LoginWithFacebook';
 
 // Private and public pages.
 const pagesForUnauthUsers = ['/', '/signup']
@@ -37,7 +36,6 @@ export const routes = (
         <Route path="/" exact component={Home} />
         <Route path="/signup/" component={Signup} />
         <Route path="/links/" component={Links} />
-        <Route path="/facebook/" component={LoginWithFacebook} />
         <Route path="/change-password/" component={ChangePassword} />
         <Route path="/forgot-password/" component={ForgotPassword} />
         <Route path="/reset-password/" component={ResetPassword} />

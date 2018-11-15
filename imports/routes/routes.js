@@ -7,6 +7,9 @@ import history from '../utils/history';
 import Home from '../ui/Home';
 import Signup from '../ui/Signup';
 import Links from '../ui/Links';
+import ChangePassword from '../ui/ChangePassword';
+import ForgotPassword from '../ui/ForgotPassword';
+import ResetPassword from '../ui/ResetPassword';
 import NotFound from '../ui/NotFound';
 
 // Private and public pages.

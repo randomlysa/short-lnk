@@ -21,7 +21,12 @@ export class Home extends React.Component {
     let password = this.refs.password.value.trim();
 
     this.props.loginWithPassword({email}, password, (e) => {
-      if (e) this.setState({error: 'Unable to login. Check email and password'});
+      if (e && e.reason === 'User has no password set') {
+        this.setState({ error: 'This email is associated with a Facebook login'});
+      }
+      else if (e) {
+        this.setState({error: 'Unable to login. Check email and password'});
+      }
       else this.setState({error: ''});
     })
   } // onSubmit

@@ -39,14 +39,14 @@ export class Signup extends React.Component {
     return (
       <div className="boxed-view">
         <div className="boxed-view__box">
-          <h1>Sign Up</h1>
+          <h1>Create Account</h1>
 
           {this.state.error ? <p>{this.state.error}</p> : ''}
 
           <form onSubmit={this.onSubmit.bind(this)} className="boxed-view-form" noValidate>
             <input type="email" ref="email" name="email" placeholder="Email" />
             <input type="password" ref="password" name="password" placeholder="Password" />
-            <button className="button button--account">Create Account</button>
+            <button className="button button--account">Register</button>
           </form>
 
           Have an account? <Link to="/">Login</Link>

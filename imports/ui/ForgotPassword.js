@@ -50,7 +50,7 @@ export default class ForgotPassword extends React.Component {
             <br />
             <button className="button button--account">Request Email</button>
           </form>
-          <Link to="/">Return to sign in</Link>
+          <Link to="/">Return to login</Link>
         </div>
       </div>
     ) // return

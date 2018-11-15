@@ -1,6 +1,7 @@
 import React from 'react';
 import { Accounts } from 'meteor/accounts-base';
 import { withTracker } from 'meteor/react-meteor-data';
+import { Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
@@ -9,7 +10,10 @@ export const PrivateHeader = (props) => {
     <div className="header">
       <div className="header__content">
         <h1 className="header__title">{props.title}</h1>
-        <button className="button button--link-text" onClick={ ()=> props.handleLogout() }>Logout</button>
+        <div>
+          <Link className="button button--link-text" to="/change-password">Account</Link> &nbsp;
+          <button className="button button--link-text" onClick={ ()=> props.handleLogout() }>Logout</button>
+        </div>
       </div>
     </div>
   )

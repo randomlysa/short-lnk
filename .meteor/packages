@@ -22,3 +22,5 @@ session
 fourseven:scss
 cultofcoders:mocha
 react-meteor-data
+accounts-facebook
+service-configuration

@@ -14,10 +14,18 @@ body {
 }
 
 input[type=text], input[type=email], input[type=password] {
-  border: 1px solid $input-border;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid $input-border;
   font-size: $base-font-size;
   margin-bottom: $spacing-bottom;
-  padding: $input-spacing;;
+  padding: $input-spacing;
+  transition: .3s all;
+
+  &:focus {
+    border-bottom: 1px solid darken($input-border, 50%);
+  }
 }
 
 h1 {

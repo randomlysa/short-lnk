@@ -24,7 +24,23 @@
   left: 0;
 }
 
+// Toggle password visibilty image causes password input to be shorter.
+.boxed-view input {
+  width: 95%;
+}
+
 .boxed-view__form {
   display: flex;
   flex-direction: column;
+}
+
+.boxed-view__group {
+  position: relative;
+}
+
+.boxed-view__img {
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
 }

@@ -30,6 +30,12 @@ export class Home extends React.Component {
     onEnterPublicPage();
   }
 
+  togglePasswordVisible() {
+    const password = this.refs.password;
+    if (password.type === "password") password.type = "text";
+    else password.type = "password";
+  }
+
   render() {
     return (
       <div className="boxed-view">
@@ -38,9 +44,18 @@ export class Home extends React.Component {
 
           {this.state.error ? <p>{this.state.error}</p> : ''}
 
-          <form onSubmit={this.onSubmit.bind(this)} className="boxed-view-form" noValidate>
-            <input type="email" ref="email" name="email" placeholder="Email" />
-            <input type="password" ref="password" name="password" placeholder="Password" />
+          <form onSubmit={this.onSubmit.bind(this)} className="boxed-view__form" noValidate>
+            <p className="boxed-view__group">
+              <input type="email" ref="email" name="email" placeholder="Email" />
+            </p>
+            <p className="boxed-view__group">
+              <input type="password" ref="password" name="password" placeholder="Password" />
+              <img
+                onClick={ this.togglePasswordVisible.bind(this) }
+                className="boxed-view__img"
+                src="/images/baseline-visibility-24px.svg"
+                alt="Toggle Show Pasword" />
+            </p>
             <button className="button button--account">Login</button>
           </form>
 

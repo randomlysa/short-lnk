@@ -1,6 +1,7 @@
 import React from 'react';
 import { Accounts } from 'meteor/accounts-base';
 import { Link } from 'react-router-dom';
+import onEnterPrivatePage from '../utils/onEnterPrivatePage';
 
 export default class ChangePassword extends React.Component {
   constructor(props) {
@@ -9,6 +10,10 @@ export default class ChangePassword extends React.Component {
       error: '',
       success: false
     };
+  }
+
+  componentWillMount() {
+    onEnterPrivatePage();
   }
 
   onSubmit(e) {

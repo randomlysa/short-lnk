@@ -2,6 +2,8 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import history from '../utils/history';
 
+// https://medium.com/@jaaaco/add-facebook-login-to-meteor-app-in-2-minutes-3c744b46009e
+
 export default class LoginWithFacebook extends React.Component {
   constructor(props) {
     super(props);

@@ -41,7 +41,7 @@ export class Signup extends React.Component {
         <div className="boxed-view__box">
           <h1>Create Account</h1>
 
-          {this.state.error ? <p>{this.state.error}</p> : ''}
+          {this.state.error ? <p className="error">{this.state.error}</p> : ''}
 
           <form onSubmit={this.onSubmit.bind(this)} className="boxed-view-form" noValidate>
             <input type="email" ref="email" name="email" placeholder="Email" />

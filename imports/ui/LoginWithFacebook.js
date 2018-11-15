@@ -26,8 +26,8 @@ export default class LoginWithFacebook extends React.Component {
       <div className="boxed-view">
         <div className="boxed-view__box">
           <h1>Short Lnk Login</h1>
-              {this.state.error ? <p>{this.state.error}</p> : ''}
-              <button class="button" onClick={this.handleFB.bind(this)}>Login with Facebook</button>
+            {this.state.error ? <p className="error">{this.state.error}</p> : ''}
+             <button class="button" onClick={this.handleFB.bind(this)}>Login with Facebook</button>
         </div>
       </div>
     ) // return

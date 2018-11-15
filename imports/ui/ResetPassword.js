@@ -52,7 +52,7 @@ export default class PasswordReset extends React.Component {
       <div className="boxed-view">
         <div className="boxed-view__box">
           <h2>Reset Password</h2>
-          {this.state.error ? <p>{this.state.error}</p> : undefined}
+          {this.state.error ? <p className="error">{this.state.error}</p> : ''}
           <form onSubmit={this.onSubmit.bind(this)}>
             <input
               ref="newPwd"

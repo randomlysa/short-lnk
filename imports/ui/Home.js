@@ -47,7 +47,7 @@ export class Home extends React.Component {
         <div className="boxed-view__box">
           <h1>Short Lnk Login</h1>
 
-          {this.state.error ? <p>{this.state.error}</p> : ''}
+          {this.state.error ? <p className="error">{this.state.error}</p> : ''}
 
           <form onSubmit={this.onSubmit.bind(this)} className="boxed-view__form" noValidate>
             <p className="boxed-view__group">

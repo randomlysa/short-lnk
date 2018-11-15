@@ -1,14 +1,14 @@
 import React from 'react';
 import onEnterPrivatePage from '../utils/onEnterPrivatePage';
 
-import PrivateHeader from './PrivateHeader'
-import LinksListFilters from './LinksListFilters'
-import AddLink from './AddLink'
-import LinksList from './LinksList'
+import PrivateHeader from './PrivateHeader';
+import LinksListFilters from './LinksListFilters';
+import AddLink from './AddLink';
+import LinksList from './LinksList';
 
 export default class Link extends React.Component {
   componentWillMount() {
-    onEnterPrivatePage()
+    onEnterPrivatePage();
   }
 
   render() {

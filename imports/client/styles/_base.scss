@@ -30,6 +30,11 @@ h2 {
   margin-bottom: $spacing-bottom;
 }
 
-a {
+a, a:visited {
   color: black;
+
+  &:hover {
+    color: $dark-grey;
+    text-decoration: none;
+  }
 }

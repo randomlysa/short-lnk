@@ -1,0 +1,33 @@
+import React from 'react';
+import { Meteor } from 'meteor/meteor';
+import history from '../utils/history';
+
+export default class LoginWithFacebook extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: ''
+    };
+  } // constructor
+
+  handleFB() {
+    Meteor.loginWithFacebook({},
+      (e) => {
+        if(e) this.setState(e.message)
+        else history.push('/links');
+      }
+    );
+  }
+
+  render() {
+    return (
+      <div className="boxed-view">
+        <div className="boxed-view__box">
+          <h1>Short Lnk Login</h1>
+              {this.state.error ? <p>{this.state.error}</p> : ''}
+              <button class="button" onClick={this.handleFB.bind(this)}>Login with Facebook</button>
+        </div>
+      </div>
+    ) // return
+  } // render
+} // export default class LoginWithFacebook

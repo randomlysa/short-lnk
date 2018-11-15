@@ -1,9 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 import { WebApp } from 'meteor/webapp';
 
-import '../imports/api/users'
-import { Links } from '../imports/api/links'
+import { Links } from '../imports/api/links';
+import '../imports/api/users';
 import '../imports/startup/simpleSchemaConf';
+import '../imports/startup/facebook.js';
 
 Meteor.startup(() => {
   WebApp.connectHandlers.use((req, res, next) => {

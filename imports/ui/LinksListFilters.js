@@ -33,7 +33,9 @@ export default class ListLinksFilter extends React.Component {
             type="checkbox"
             checked={!this.state.showVisible}
             onChange={(e) =>{
-              visible: Session.set('showVisible', !e.target.checked)
+              // When the checbox is changed (clicked), set it to the opposite
+              // of whatever it was.
+              Session.set('showVisible', !e.target.checked)
             }}
           />
         </label>
@@ -44,7 +46,7 @@ export default class ListLinksFilter extends React.Component {
             type="checkbox"
             checked={!this.state.showShortURL}
             onChange={(e) =>{
-              visible: Session.set('showShortURL', !e.target.checked)
+              Session.set('showShortURL', !e.target.checked)
             }}
           />
         </label>

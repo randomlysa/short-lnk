@@ -47,7 +47,7 @@ export class Home extends React.Component {
     const password = this.refs.password;
     if (password.type === "password") password.type = "text";
     else password.type = "password";
-  }
+  } // togglePasswordVisible
 
   render() {
     return (

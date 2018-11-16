@@ -11,8 +11,8 @@ export const PrivateHeader = (props) => {
       <div className="header__content">
         <h1 className="header__title">{props.title}</h1>
         <div>
-          <Link className="button button--link-text" to="/change-password">Account</Link> &nbsp;
-          <button className="button button--link-text" onClick={ ()=> props.handleLogout() }>Logout</button>
+          <Link className="button button--header" to="/change-password">Account</Link> &nbsp;
+          <button className="button button--header" onClick={ ()=> props.handleLogout() }>Logout</button>
         </div>
       </div>
     </div>

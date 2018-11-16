@@ -10,7 +10,7 @@
   text-transform: uppercase;
 }
 
-// Make a button look like a text link.
+// Used once in LinkListItem
 .button--link {
   display: inline-block;
   text-decoration: none;
@@ -23,6 +23,12 @@
   color: $button-pill-color;
   margin: 0 ($spacing-bottom / 2) 0 0;
   padding: .6rem .8rem;
+
+  // match color to default link
+  &:hover, &:active {
+    color: $dark-grey;
+    border: solid 1px #000;
+  }
 }
 
 // Modal for Add link - cancel button.
@@ -45,12 +51,18 @@
   }
 }
 
-.button--link-text {
+.button--header, a.button--header {
+  color: #fff;
   background: none;
   margin: 0;
   padding: 0;
   text-decoration: underline;
   text-transform: capitalize;
+
+  &:hover, &:active {
+    color: #fff;
+    text-decoration: none;
+  }
 }
 
 // Buttons that deal with accounts.

@@ -10,6 +10,20 @@
   text-transform: uppercase;
 }
 
+// Used by +Add Link button. Not adding :hover to .button because it affects
+// too many other buttons.
+.button--add-link {
+  &:hover {
+    background-color: lighten($button-bg, 15%);
+    box-shadow: 0 5px 20px rgba(0,0,0,.2);
+    transform: translateY(-3px);
+  }
+  &:active {
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    transform: translateY(-1px);
+  }
+}
+
 // Used once in LinkListItem
 .button--link {
   display: inline-block;

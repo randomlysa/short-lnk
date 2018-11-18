@@ -2,11 +2,19 @@ ServiceConfiguration.configurations.remove({
   service: "facebook"
 });
 
-ServiceConfiguration.configurations.insert({
-  service: "facebook",
-  appId: '275046823147468',
-  secret: '93c12bdb5536cee6527f57bb526f0fd7'
-});
+if (Meteor.isDevelopment) {
+  ServiceConfiguration.configurations.insert({
+    service: 'facebook',
+    appId: Meteor.settings.FBappId,
+    secret: Meteor.settings.FBsecret
+  });
+} else {
+  ServiceConfiguration.configurations.insert({
+    service: 'facebook',
+    appId: process.env.FBappId,
+    secret: process.env.FBsecret
+  });
+}
 
 Accounts.onCreateUser(function (options, user) {
 

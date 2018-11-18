@@ -38,7 +38,7 @@ export class Home extends React.Component {
   // https://medium.com/@jaaaco/add-facebook-login-to-meteor-app-in-2-minutes-3c744b46009e
   loginFB() {
     Meteor.loginWithFacebook({}, (e) => {
-      if(e) this.setState(e.message);
+      if(e) this.setState({ error: e.message });
       else history.push('/links');
     });
   } // loginFB

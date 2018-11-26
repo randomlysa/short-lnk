@@ -1,14 +1,18 @@
 import React from 'react';
 import Modal from 'react-modal';
+import 'animate.css';
 
 export default class AddLink extends React.Component {
   constructor(props) {
     super(props);
+    this.defaultModalClassName = 'boxed-view__box animated fadeIn';
+
     this.state = {
       url: '',
       modalIsOpen: false,
-      error: ''
-     }
+      error: '',
+      modalClassName: this.defaultModalClassName
+     };
   }
   onChange(e) {
     this.setState({ url: e.target.value })
@@ -16,6 +20,7 @@ export default class AddLink extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
+    this.setState({ modalClassName: 'boxed-view__box' });
     let { url } = this.state;
 
     // Before submitting, add http:// to the url if it's not already included.
@@ -27,13 +32,23 @@ export default class AddLink extends React.Component {
       // If there's no error, remove the url and hide the modal.
       if(!e) this.handleModalClose();
       // Error
-      else this.setState({ error: e.reason });
+      else {
+        this.setState({
+          error: e.reason,
+          modalClassName: 'boxed-view__box ahashakeheartache'
+        });
+      }
     }) // Meteor.call
   } // onSubmit
 
   handleModalClose() {
     // Close the modal and remove the url and error text.
-    this.setState({ modalIsOpen: false, url: '', error: '' })
+    this.setState({
+      modalIsOpen: false,
+      url: '',
+      error: '',
+      modalClassName: this.defaultModalClassName
+     });
   }
 
   render() {
@@ -52,8 +67,9 @@ export default class AddLink extends React.Component {
           appElement={document.getElementById('app')}
           onAfterOpen={ () => this.refs.url.focus() }
           onRequestClose={ this.handleModalClose.bind(this) }
-          className="boxed-view__box"
+          className={this.state.modalClassName}
           overlayClassName="boxed-view boxed-view--modal"
+          closeTimeoutMS={150}
         >
           <h3>Add Link</h3>
           {this.state.error ? <p className="error">{this.state.error}</p> : ''}
